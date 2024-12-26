@@ -1,27 +1,19 @@
 def belong(ls, num):
-    num in ls
-    False
-    num not in ls
-    return True
+    return num in ls
+
 def is_subject(ls_a, ls_b):
-    ls_a in ls_b
-    return True
-    ls_a not in ls_b
-    return False
-def are_equal(ls_a, ls_b):
-    ls_a in ls_b and ls_b in ls_a
-    return True
-    ls_a not in ls_a or ls_b not in ls_a
-    return False
-    
+    return ls_a in ls_b
+
+def are_equal(ls_a, ls_b):   
+    return (ls_a in ls_b) and (ls_b in ls_a)
 
 
 def main():
             
-    a = [12345]
-    b = [123456789]
-    c = [12345]
-    n = 6
+    a = [1,2,3,4,5]
+    b = [1,2,3,4,5,6,7,8,9]
+    c = [1,2,3,4,5]
+    n = 3
     print(belong(a, n))
     print(is_subject(a, b))
     print(are_equal(a, c))
