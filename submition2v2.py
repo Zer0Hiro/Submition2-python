@@ -1,6 +1,8 @@
 def belong(ls, num):
     num in ls
-   
+    False
+    num not in ls
+    return True
 def is_subject(ls_a, ls_b):
     ls_a in ls_b
     return True
@@ -19,7 +21,7 @@ def main():
     a = [12345]
     b = [123456789]
     c = [12345]
-    n = 4
+    n = 6
     print(belong(a, n))
     print(is_subject(a, b))
     print(are_equal(a, c))
