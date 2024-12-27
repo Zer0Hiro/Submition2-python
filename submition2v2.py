@@ -49,16 +49,23 @@ def sym_diff(lstA,lstB):
     result = unify(Alist, Blist)
     return result
 
-
+#Creates a list of a group
 def build_set(n):
     lst = []
     print("Enter %d natural numbers between 1 to 100, with no repetitions:"%n)
     count = 0
     while count != n:
         a = int(input())
+        flag = False
         if 0 < a < 100:
-            count += 1
-            lst.append(int(input()))
+            for i in lst:
+                if i == a:
+                    flag = True
+            if flag == False:
+                count += 1
+                lst.append(a)
+            else:
+              print("Wrong input")  
         else:
             print("Wrong input")
     return lst
@@ -72,5 +79,5 @@ def main():
         print("%d belongs to A or to B"%n)
     else:
         print("%d doesn't belong either to A or B"%n)
-    print(sym_diff(c,b))
+    print(build_set(5))
 main()    
