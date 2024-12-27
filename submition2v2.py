@@ -18,7 +18,7 @@ def intersect(lstA,lstB):
 
 def unify(lstA,lstB):
     union_lst = lstA
-    same = intersect(lstA, lstB)
+    same = intersect(lstA,lstB)
     for i in range(len(lstB)):
         flag = 0
         for x in range(len(same)):
@@ -31,12 +31,20 @@ def unify(lstA,lstB):
 
 def difference(lstA,lstB):
     dif = []
-    
+    for i in range(len(lstA)):
+        flag = 0
+        for x in range(len(lstB)):
+            if lstA[i] == lstB[x]:
+                flag = 1
+        if flag != 1:
+            dif.append(lstA[i])
+    print(dif)
+    return dif
     
 def main():      
     a = [1,2,3,4,5]
-    b = [4,5,6,7,3,8,9]
+    b = [4,3,8,9]
     c = [1,2,3,4,5]
     n = 3
-    unify(a,b)
+    difference(a,b)
 main()    
