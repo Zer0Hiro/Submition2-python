@@ -13,7 +13,6 @@ def intersect(lstA,lstB):
         for x in range(len(lstB)):
             if lstA[i] == lstB[x]:
                 int_lst.append(lstB[x])
-    print(int_lst)
     return int_lst
 
 def unify(lstA,lstB):
@@ -26,7 +25,6 @@ def unify(lstA,lstB):
                flag = 1
         if flag != 1:
             union_lst.append(lstB[i])
-    print(union_lst)
     return union_lst
 
 def difference(lstA,lstB):
@@ -38,13 +36,22 @@ def difference(lstA,lstB):
                 flag = 1
         if flag != 1:
             dif.append(lstA[i])
-    print(dif)
     return dif
-    
+
+def sym_diff(lstA,lstB):
+    Alist = difference(lstA, lstB)
+    Blist = difference(lstB, lstA)
+    result = unify(Alist, Blist)
+    return result
+
 def main():      
-    a = [1,2,3,4,5]
-    b = [4,3,8,9]
-    c = [1,2,3,4,5]
+    a = [23,56,4,67]
+    b = [12,45,4]
+    c = []
     n = 3
-    difference(a,b)
+    if belong(c,n) == True:
+        print("%d belongs to A or to B"%n)
+    else:
+        print("%d doesn't belong either to A or B"%n)
+    print(sym_diff(c,b))
 main()    
