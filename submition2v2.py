@@ -52,12 +52,12 @@ def sym_diff(lstA,lstB):
 #Creates a list of a group
 def build_set(n):
     lst = []
-    print("Enter %d natural numbers between 1 to 100, with no repetitions:"%n)
     count = 0
     while count != n:
+        print("Enter %d natural numbers between 1 to 100, with no repetitions:"%n)
         a = int(input())
         flag = False
-        if 0 < a < 100:
+        if 0 < a <= 100:
             for i in lst:
                 if i == a:
                     flag = True
@@ -69,7 +69,13 @@ def build_set(n):
         else:
             print("Wrong input")
     return lst
+
+#def build_universal():
     
+
+def is_empty(lst):
+    return len(lst) == 0
+
 def main():      
     a = [23,56,4,67]
     b = [12,45,4]
@@ -79,5 +85,5 @@ def main():
         print("%d belongs to A or to B"%n)
     else:
         print("%d doesn't belong either to A or B"%n)
-    print(build_set(5))
+    print(build_set(0))
 main()    
