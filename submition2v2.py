@@ -2,10 +2,13 @@ def belong(ls, num):
     return num in ls
 
 def is_subject(ls_a, ls_b):
-    return ls_a in ls_b
-
-def are_equal(ls_a, ls_b):   
-    return (ls_a in ls_b) and (ls_b in ls_a)
+    for x in ls_a: 
+        if x not in ls_b:
+            return False
+    return True    
+        
+def are_equal(ls_a, ls_b):
+    return is_subject(ls_a, ls_b) and is_subject(ls_b, ls_a)
 
 #If number is in A and B shows which number is it
 def intersect(lstA,lstB):
@@ -100,6 +103,12 @@ def main():
         print("%d doesn't belong either to A or B"%natural)
     else:
         print("%d belongs to A or to B"%natural)
+    
+    inter = intersect(lists[0], lists[1])
+    if is_empty(inter) == True:
+        print("The intersection of A and B is empty")
+    else:
+        print("The intersection of A and B is", inter)
     
     
 main()
