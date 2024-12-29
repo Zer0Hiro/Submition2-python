@@ -53,8 +53,8 @@ def sym_diff(lstA,lstB):
 def build_set(n):
     lst = []
     count = 0
+    print("Enter %d natural numbers between 1 to 100, with no repetitions:"%n)
     while count != n:
-        print("Enter %d natural numbers between 1 to 100, with no repetitions:"%n)
         a = int(input())
         flag = False
         if 0 < a <= 100:
@@ -70,20 +70,37 @@ def build_set(n):
             print("Wrong input")
     return lst
 
-#def build_universal():
-    
+def build_universal():
+    universal = []
+    for i in range(1,101):
+        universal.append(i)
+    return universal
 
 def is_empty(lst):
     return len(lst) == 0
 
-def main():      
-    a = [23,56,4,67]
-    b = [12,45,4]
-    c = []
-    n = 3
-    if belong(c,n) == True:
-        print("%d belongs to A or to B"%n)
+#Need are - equal!!!
+# def is_universal(lst,universal):
+
+def main():
+    lists = ["A","B"]
+    for i in range(len(lists)):
+        name = lists[i]
+        size = int(input("Enter the size of set %s\n"%name))
+        lists[i] = build_set(size)
+        print("%s set is"%name, lists[i])
+        print()
+    natural = int(input("Enter a natural number: "))
+    
+    does = False
+    for x in range(len(lists)):
+        if belong(lists[x],natural) == True:
+            does = True   
+    if does == False:
+        print("%d doesn't belong either to A or B"%natural)
     else:
-        print("%d doesn't belong either to A or B"%n)
-    print(build_set(0))
-main()    
+        print("%d belongs to A or to B"%natural)
+    
+    
+main()
+    
